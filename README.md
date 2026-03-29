@@ -27,7 +27,7 @@
 - 该脚本要实现 加载launch文件路径，小车urdf文件路径，world文件路径到gazrbo sim中
 - 需要实现将小车的.urdf文件转换为.sdf格式来让gazobo可以识别显示
 - 代码
-```
+```python
 import launch
 import launch_ros
 from ament_index_python.packages import get_package_share_directory
@@ -90,7 +90,7 @@ def generate_launch_description():
 - 该库 订阅ros2的/cmd_vel话题，并发布机器人的里程计位置信息到/odom和/tf两个话题中
 - 之后在carbot.urdf.xacro中调用插件的宏
 - 关键代码
-```
+```xml
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:macro name="gazebo_control_plugin">
@@ -132,7 +132,7 @@ def generate_launch_description():
 
 ## 3.机器人各模块的仿真
 #### 添加插件
-```
+```xml
 <plugin filename="libgz-sim8-sensors-system.so" name="gz::sim::systems::Sensors">
 ```
 - 在gz sim harmonic中所有仿真都是用同一个插件，然后插件识别`type`来具体实现不同传感器的仿真功能。
@@ -157,7 +157,7 @@ def generate_launch_description():
 └──────────────┘  └──────────────┘  └──────────────┘
 ```
 #### 数据流路径
-```
+```shell
 Gazebo Sim 内部传感器 → 
 ros_gz_bridge 桥接 → ROS 2 标准话题
 ```
@@ -187,7 +187,7 @@ ros_gz_bridge 桥接 → ROS 2 标准话题
 转换: rpy="${-pi/2} 0 ${-pi/2}"
 ```
 #### 验证相机
-```
+```shell
 # 重新构建
 cd ~/arm_ws
 colcon build --packages-select my_arm_description
@@ -211,7 +211,7 @@ ros2 topic echo /camera/camera_info --once
 ## 4. ros2_control驱动机器人
 ### 4.1 使用控制器获取信息
 - 查看ROS2控制器命令 (jazzy)
-```
+```shell
 sudo apt info ros-$ROS_DISTRO-ros2-controllers
 ```
 - 创建carbot.ros2_control.xacro文件
@@ -229,7 +229,7 @@ carbot_effort_controller:
       type: effort_controllers/JointGroupEffortController
 ```
 - 配置好力控制器的相关参数
-```
+```python
 carbot_effort_controller:
   ros__parameters:
     joints:
@@ -502,7 +502,7 @@ ros2 launch nav2_bringup navigation_launch.py \
 ### 1.1 初始化机器人的位姿
 - 新建一个`carbot_application`的包，并在其中创建init_pose的文件来初始化机器人初始位姿
 - 具体实现是通过导入nav2的库来实现的
-```
+```python
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator
 import rclpy
@@ -561,7 +561,7 @@ ros2 pkg create auto_patrol_carbot --build-type ament_python --dependencies rcpl
     - 在运行节点时记得加载.yaml文件就行
     - ` ros2 run <package_name> <executable_name> --ros-args --params-file            <config_file_path>`
     - 后续也可以再写launch文件来包含这个命令
-```
+```python
 def generate_launch_description():
     # 获取包的路径
     package_dir = get_package_share_directory('auto_patrol_carbot')
@@ -600,7 +600,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 ##### 创建语音服务节点
 - 创建`speak.py`节点来实现语音播报逻辑
 - 使用 `espeakng` 库将文本转换为语音
-```
+```python
 class Speaker(Node):
     def __init__(self, node_name):
         super().__init__(node_name)
@@ -634,7 +634,7 @@ def speach_text(self, text):
 - launch文件的本质就是获取各个文件的路径（作为命令的参数）
 - 然后启动各个ros2命令
 - 编写完后记得修改`setup.py`文件和`packages.xml`文件
-```
+```python
 def generate_launch_description():
     package_dir = get_package_share_directory('auto_patrol_carbot')
     config_path = os.path.join(package_dir, 'config', 'patrol_params_config.yaml')
