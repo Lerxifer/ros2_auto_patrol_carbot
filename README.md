@@ -27,7 +27,7 @@
 - 该脚本要实现 加载launch文件路径，小车urdf文件路径，world文件路径到gazrbo sim中
 - 需要实现将小车的.urdf文件转换为.sdf格式来让gazobo可以识别显示
 - 代码
-- ```
+```
 import launch
 import launch_ros
 from ament_index_python.packages import get_package_share_directory
@@ -82,7 +82,7 @@ def generate_launch_description():
         launch_gazebo,
         spawn_entity_node,
     ])
-  ```
+```
 ### 2.2 URDF中扩展Gazebo标签
 - 通过添加标签`<gazebo>  </gazebo>`来实现小车在仿真环境中的颜色，物理性质等因素的实现
 ### 2.3 使用两轮差速插件控制机器人
