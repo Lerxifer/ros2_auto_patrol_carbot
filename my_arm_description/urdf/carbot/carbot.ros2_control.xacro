@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="carbot_ros2_control">
+        <ros2_control name="CarBotGazeboSystem" type="system">
+            <hardware>
+                <!-- Gazebo Harmonic 的硬件插件 -->
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            </hardware>
+            
+            <!-- 左轮关节 -->
+            <joint name="left_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-1</param>
+                    <param name="max">1</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+            
+            <!-- 右轮关节 -->
+            <joint name="right_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-1</param>
+                    <param name="max">1</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+            </joint>
+        </ros2_control>
+        
+        <!-- Gazebo Sim 插件配置（Harmonic 版本） -->
+        <gazebo>
+             <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+                <parameters>$(find my_arm_description)/config/carbot_ros2_controller.yaml</parameters>
+            </plugin>
+        </gazebo>
+    </xacro:macro>
+</robot>
