@@ -1,0 +1,5 @@
+espeakng
+setuptools
+
+[test]
+pytest

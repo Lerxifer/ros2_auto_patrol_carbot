@@ -1,0 +1,77 @@
+[0.140s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner -DCMAKE_INSTALL_PREFIX=/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner
+[0.189s] -- The C compiler identification is GNU 13.3.0
+[0.237s] -- The CXX compiler identification is GNU 13.3.0
+[0.253s] -- Detecting C compiler ABI info
+[0.336s] -- Detecting C compiler ABI info - done
+[0.341s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.342s] -- Detecting C compile features
+[0.342s] -- Detecting C compile features - done
+[0.353s] -- Detecting CXX compiler ABI info
+[0.448s] -- Detecting CXX compiler ABI info - done
+[0.454s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.455s] -- Detecting CXX compile features
+[0.455s] -- Detecting CXX compile features - done
+[0.459s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.611s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.724s] -- Found pluginlib: 5.4.4 (/opt/ros/jazzy/share/pluginlib/cmake)
+[0.765s] -- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2
+[0.769s] -- Found nav2_core: 1.3.10 (/opt/ros/jazzy/share/nav2_core/cmake)
+[0.818s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.833s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.851s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.865s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.990s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.000s] -- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)
+[1.053s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.656s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[1.657s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.658s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.872s] -- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.984s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.984s] -- Configured cppcheck include dirs: /home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner/include
+[1.984s] -- Configured cppcheck exclude dirs and/or files: 
+[1.986s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.986s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.988s] -- Added test 'lint_cmake' to check CMake code style
+[1.990s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.998s] -- Added test 'uncrustify' to check C / C++ code style
+[1.998s] -- Configured uncrustify additional arguments: 
+[1.999s] -- Added test 'xmllint' to check XML markup files
+[2.001s] -- Configuring done (1.9s)
+[2.136s] -- Generating done (0.1s)
+[2.139s] -- Build files have been written to: /home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner
+[2.147s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner -DCMAKE_INSTALL_PREFIX=/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner
+[2.148s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner -- -j8 -l8
+[2.190s] [ 50%] [32mBuilding CXX object CMakeFiles/nav2_custom_planner_plugin.dir/src/nav2_custom_planner.cpp.o[0m
+[4.549s] [01m[K/home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner/src/nav2_custom_planner.cpp:[m[K In member function ‘[01m[Kvirtual nav_msgs::msg::Path nav2_custom_planner::CustomPlanner::[01;32m[KcreatePlan[m[K(const geometry_msgs::msg::PoseStamped&, const geometry_msgs::msg::PoseStamped&, std::function<bool()>)[m[K’:
+[4.549s] [01m[K/home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner/src/nav2_custom_planner.cpp:50:53:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcancel_checker[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.549s]    50 |                               [01;35m[Kstd::function<bool()> cancel_checker[m[K)
+[4.549s]       |                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[5.582s] [100%] [32m[1mLinking CXX shared library libnav2_custom_planner_plugin.so[0m
+[5.834s] [100%] Built target nav2_custom_planner_plugin
+[5.843s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner -- -j8 -l8
+[5.843s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner
+[5.849s] -- Install configuration: ""
+[5.850s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/lib/libnav2_custom_planner_plugin.so
+[5.850s] -- Set non-toolchain portion of runtime path of "/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/lib/libnav2_custom_planner_plugin.so" to ""
+[5.850s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/include/
+[5.850s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/include//nav2_custom_planner
+[5.850s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/include//nav2_custom_planner/nav2_custom_planner.hpp
+[5.850s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/custom_planner_plugin.xml
+[5.850s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/ament_index/resource_index/package_run_dependencies/nav2_custom_planner
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/ament_index/resource_index/parent_prefix_path/nav2_custom_planner
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/environment/ament_prefix_path.sh
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/environment/ament_prefix_path.dsv
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/environment/path.sh
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/environment/path.dsv
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/local_setup.bash
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/local_setup.sh
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/local_setup.zsh
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/local_setup.dsv
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/package.dsv
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/ament_index/resource_index/packages/nav2_custom_planner
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/ament_index/resource_index/nav2_core__pluginlib__plugin/nav2_custom_planner
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/cmake/nav2_custom_plannerConfig.cmake
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/cmake/nav2_custom_plannerConfig-version.cmake
+[5.851s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_planner/share/nav2_custom_planner/package.xml
+[5.852s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/luxifer/LearningRoom/navigation_ws/src/build/nav2_custom_planner

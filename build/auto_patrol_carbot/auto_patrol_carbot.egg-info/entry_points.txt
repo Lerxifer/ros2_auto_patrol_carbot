@@ -1,0 +1,3 @@
+[console_scripts]
+auto_patrol_node = auto_patrol_carbot.auto_patrol_node:main
+speak_node = auto_patrol_carbot.speak:main

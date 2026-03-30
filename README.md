@@ -1,7 +1,3 @@
-# 项目介绍
-- 项目介绍：这是一个基于ROS2的智能小车项目，用于在gazebo仿真环境中实现智能小车的导航和巡逻功能。
-
-# 以下时项目具体开发流程
 # 一、创建小车模型
 ## 1. 创建工作环境
 ### 1.1 创建一个workspace, 并在该工作空间中创建一个包
@@ -27,7 +23,7 @@
 - 该脚本要实现 加载launch文件路径，小车urdf文件路径，world文件路径到gazrbo sim中
 - 需要实现将小车的.urdf文件转换为.sdf格式来让gazobo可以识别显示
 - 代码
-- ```
+```python
 import launch
 import launch_ros
 from ament_index_python.packages import get_package_share_directory
@@ -90,7 +86,7 @@ def generate_launch_description():
 - 该库 订阅ros2的/cmd_vel话题，并发布机器人的里程计位置信息到/odom和/tf两个话题中
 - 之后在carbot.urdf.xacro中调用插件的宏
 - 关键代码
-```
+```xml
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:macro name="gazebo_control_plugin">
@@ -132,7 +128,7 @@ def generate_launch_description():
 
 ## 3.机器人各模块的仿真
 #### 添加插件
-```
+```xml
 <plugin filename="libgz-sim8-sensors-system.so" name="gz::sim::systems::Sensors">
 ```
 - 在gz sim harmonic中所有仿真都是用同一个插件，然后插件识别`type`来具体实现不同传感器的仿真功能。
@@ -187,7 +183,7 @@ ros_gz_bridge 桥接 → ROS 2 标准话题
 转换: rpy="${-pi/2} 0 ${-pi/2}"
 ```
 #### 验证相机
-```
+```shell
 # 重新构建
 cd ~/arm_ws
 colcon build --packages-select my_arm_description
@@ -634,7 +630,7 @@ def speach_text(self, text):
 - launch文件的本质就是获取各个文件的路径（作为命令的参数）
 - 然后启动各个ros2命令
 - 编写完后记得修改`setup.py`文件和`packages.xml`文件
-```
+```python
 def generate_launch_description():
     package_dir = get_package_share_directory('auto_patrol_carbot')
     config_path = os.path.join(package_dir, 'config', 'patrol_params_config.yaml')
@@ -660,5 +656,348 @@ def generate_launch_description():
 ### 2.4 订阅图像并记录
 - 创建一个订阅者，订阅来自相机的图像，并转换为OpenCV的格式
 - 接着将图像保存值指定的位置
-- 记得在launch文件中添加相机节点
-- 记得在launch文件中添加语音播报节点
+
+---
+# 三、进阶导航
+## 1. ROS2的插件机制
+- `pluginlib`是一个用于在ROS功能包中动态加载和卸载插件的C++库。
+- 安装`pluginlib`
+```shell
+sudo apt install ros-$ROS_DISTRO-pluginlib -y
+```
+
+## 2. 定义插件抽象类
+```shell
+ros2 pkg create motion_control-system --dependencies pluginlib --license Apache-2.0
+```
+- 在该包中定义抽象类 (纯虚函数)
+```cpp
+#ifndef MOTION_CONTROL_INTERFACE_HPP
+#define MOTION_CONTROL_INTERFACE_HPP
+
+namespace motion_control_system {
+	class MotionController {
+	public:
+	    virtual void start() = 0;
+	    virtual void stop() = 0;
+	    virtual ~MotionController() {}
+	};
+} // namespace motion_control_system
+
+#endif // MOTION_CONTROL_INTERFACE_HPP
+```
+
+## 3. 编写插件
+- 创建运动插件，运动控制器通过调用不同的插件实现不同的运动方式
+### 3.1 编写旋转运动插件
+- 也是按规范开发，分头文件和源文件来开发框架
+- 在.cpp文件中需要包含, 通过宏对插件进行导出
+```cpp
+#include "pluginlib/class_list_macros.hpp"
+
+PLUGINLIB_EXPORT_CLASS(motion_control_system::SpinMotionController, motion_control_system::MotionController)
+```
+- 创建.xml文件，告诉你动态库名字是什么，实现的类时谁，这个的类的基类又是谁
+```xml
+<library path="spin_motion_controller">
+    <class name="motion_control_system/SpinMotionController" type="motion_control_system::SpinMotionController" base_class_type="motion_control_system::MotionController">
+     <description>Spin Motion Controller</description>
+    </class>
+</library>
+```
+- 编写CMakeList.txt文件来生成动态库
+```cpp
+include_directories(include)
+# ================添加库文件=====================
+add_library(spin_motion_controller SHARED src/spin_motion_controller.cpp)
+ament_target_dependencies(spin_motion_controller  pluginlib )
+
+add_executable(test_plugin src/test_plugin.cpp)
+ament_target_dependencies(test_plugin pluginlib)
+install(TARGETS test_plugin
+    DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS spin_motion_controller
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY include/
+  DESTINATION include/
+)
+
+# 导出插件描述文件
+pluginlib_export_plugin_description_file(motion_control_system spin_motion_plugins.xml)
+```
+- 最后`colcon build`，生成动态链接库`.so文件`
+### 3.2 编写插件测试程序
+```cpp
+int main(int argc, char **argv) {
+  // 判断参数数量是否合法
+  if (argc != 2)
+    return 0;
+  // 通过命令行参数，选择要加载的插件,argv[0]是可执行文件名，argv[1]表示参数名
+  std::string controller_name = argv[1];
+
+  // 1.通过功能包名称和基类名称创建控制器加载器
+  pluginlib::ClassLoader<motion_control_system::MotionController>
+      controller_loader("motion_control_system",
+                        "motion_control_system::MotionController");
+
+  // 2.使用加载器加载指定名称的插件，返回的是指定插件类的对象的指针
+  auto controller = controller_loader.createSharedInstance(controller_name);
+
+  // 3.调用插件的方法
+  controller->start();
+  controller->stop();
+  return 0;
+}
+```
+运行时依赖体现 ：
+- 第1行：包含基类接口（编译时依赖）
+- 第2行：包含pluginlib加载器（运行时依赖）
+- 第13-14行：创建ClassLoader，指定功能包和基类
+- 第17行：通过插件名动态创建实例
+- 第20-21行：通过基类指针调用虚函数（多态）
+
+## 4. 理解插件的运行流程
+### 1. 整体架构，文件依赖关系
+```
+基类接口层：
+motion_control_interface.hpp (抽象基类)
+    ↓ 被继承
+
+具体插件层：
+spin_motion_controller.hpp/cpp → 继承 MotionController
+straight_motion_controller.hpp/cpp → 继承 MotionController  
+jump_motion_controller.hpp/cpp → 继承 MotionController
+
+插件注册层：
+spin_motion_plugin.xml → 描述插件信息
+PLUGINLIB_EXPORT_CLASS宏 → 注册插件类
+
+编译配置层：
+CMakeLists.txt → 编译动态库和可执行文件
+
+使用层：
+test_plugin.cpp → 运行时动态加载插件
+```
+### 2. CMakeList中的编译链接
+#### 动态库编译
+```cpp
+# 编译三个动态库
+add_library(spin_motion_controller SHARED src/spin_motion_controller.cpp)
+ament_target_dependencies(spin_motion_controller  pluginlib )
+
+add_library(straight_motion_controller SHARED src/straight_motion_controller.cpp)
+ament_target_dependencies(straight_motion_controller  pluginlib )
+
+add_library(jump_motion_controller SHARED src/jump_motion_controller.cpp)
+ament_target_dependencies(jump_motion_controller  pluginlib )
+```
+链接体现 ：
+- `SHARED` 关键字：编译为动态库（.so文件）
+- `ament_target_dependencies` ：链接pluginlib依赖库
+#### 可执行文件编译
+```cpp
+add_executable(test_plugin src/test_plugin.cpp)
+ament_target_dependencies(test_plugin pluginlib)
+install(TARGETS test_plugin
+    DESTINATION lib/${PROJECT_NAME}
+)
+```
+链接体现 ：
+- 编译test_plugin可执行文件
+- 链接pluginlib库（用于运行时加载插件
+#### 导出插件描述
+```cpp
+pluginlib_export_plugin_description_file(motion_control_system spin_motion_plugin.xml)
+```
+作用 ：
+- 将XML文件安装到ROS2的插件目录
+- 使pluginlib能够发现这些插件
+### 3. XML-插件描述文件
+```xml
+<library path="spin_motion_controller">
+    <class name="motion_control_system/SpinMotionController"
+           type="motion_control_system::SpinMotionController"
+           base_class_type="motion_control_system::MotionController">
+        <description>Spin Motion Controller</description>
+    </class>
+</library>
+```
+关键信息 ：
+- library path ：动态库文件名
+- type ：具体的插件类名
+- `base_class_type` ：基类类型
+- name ：插件的唯一标识符
+
+## 5. 自定义导航规划器
+### 1. 规划器插件框架
+- 三个基本概念：位置、路径、占据栅格地图（一个像素点代表0.05m）
+- 创建规划器的包
+```shell
+ros2 pkg create nav2_custom_planner --dependencies pluginlib nav2_core
+```
+- 注意，创建的包继承`nav2_core::GlobalPlanner`
+- 然后创建基类.hpp文件，对GlobalPlanner类的五个纯虚函数进行重写
+    `cleanup`: 插件清理
+    `activate`：插件激活
+    `deactivate`：插件停用
+    `createPlan`：为给定的起始和目标位姿创建路径方法
+    `configure`：插件配置
+
+### 2. 实现这些方法
+- 编写.cpp中
+- 插件注册宏
+```cpp
+#include "pluginlib/class_list_macros.hpp"
+PLUGINLIB_EXPORT_CLASS(nav2_custom_planner::CustomPlanner,
+
+                       nav2_core::GlobalPlanner)
+```
+- 创建.xml文件，来描述插件
+- 修改CMakeList.txt来生成动态链接库
+- 不一样的点在于，也需要修改package.xml文件, 因为是重写已有的插件，所以要申明下
+```xml
+<nav2_core plugin="${prefix}/custom_planner_plugin.xml" />
+```
+
+### 3. 自定义规划算法
+- 声明并初始化 `global Path`
+```cpp
+nav_msgs::msg::Path global_path;
+global_path.poses.clear();
+global_path.header.stamp = node_->now();
+global_path.header.frame_id = global_frame_;
+```
+- 检查起始坐标点和目标坐标点是否在global map中
+```cpp
+		if (start.header.frame_id != global_frame_)
+        {
+            RCLCPP_ERROR(node_->get_logger(), "规划器仅接受来自 %s 坐标系的起始位置",
+                         global_frame_.c_str());
+            return global_path;
+        }
+
+        if (goal.header.frame_id != global_frame_)
+        {
+            RCLCPP_INFO(node_->get_logger(), "规划器仅接受来自 %s 坐标系的目标位置",
+                        global_frame_.c_str());
+            return global_path;
+        }
+```
+- 计算当前插值分辨率 `interpolation_resolution_` 下的循环次数和步进值
+- 就是计算出，每个路径点之间的距离是多少, 以及要生成多少个路径点
+```cpp
+		int total_number_of_loop =
+            std::hypot(goal.pose.position.x - start.pose.position.x,
+                       goal.pose.position.y - start.pose.position.y) /
+            interpolation_resolution_;
+        double x_increment =
+            (goal.pose.position.x - start.pose.position.x) / total_number_of_loop;
+        double y_increment =
+            (goal.pose.position.y - start.pose.position.y) / total_number_of_loop;
+```
+- 按上面给的循环次数和步进值来生成路径
+```cpp
+		for (int i = 0; i < total_number_of_loop; ++i)
+        {
+            geometry_msgs::msg::PoseStamped pose; // 生成一个点
+            pose.pose.position.x = start.pose.position.x + x_increment * i;
+            pose.pose.position.y = start.pose.position.y + y_increment * i;
+            pose.pose.position.z = 0.0;
+            pose.header.stamp = node_->now();
+            pose.header.frame_id = global_frame_;
+
+            // 将该点放到路径中
+            global_path.poses.push_back(pose);
+        }
+```
+- 检查每个路径点，看是否有穿过障碍物
+- 由于是直线路径规划，所以有致命障碍物时只是报出异常表示路径规划失败
+```cpp
+		for (geometry_msgs::msg::PoseStamped pose : global_path.poses)
+        {
+            unsigned int mx, my; // 将点的坐标转换为栅格坐标
+            if (costmap_->worldToMap(pose.pose.position.x, pose.pose.position.y, mx, my))
+            {
+                unsigned char cost = costmap_->getCost(mx, my); // 获取对应栅格的代价
+
+                // 如果存在致命障碍物则抛出异常
+                if (cost == nav2_costmap_2d::LETHAL_OBSTACLE)
+                {
+                    RCLCPP_WARN(node_->get_logger(),"在(%f,%f)检测到致命障碍物，规划失败。",
+                        pose.pose.position.x, pose.pose.position.y);
+                    throw nav2_core::PlannerException(
+                        "无法创建目标规划: " + std::to_string(goal.pose.position.x) + "," +
+                        std::to_string(goal.pose.position.y));
+                }
+            }
+        }
+```
+- 将目标点作为最后一个路径点，并返回路径`global_path`
+```cpp
+		geometry_msgs::msg::PoseStamped goal_pose = goal;
+        goal_pose.header.stamp = node_->now();
+        goal_pose.header.frame_id = global_frame_;
+        global_path.poses.push_back(goal_pose);
+        return global_path;
+```
+
+### 4. 配置导航参数并测试
+- 在导航包`carbot_navigation`下的.yaml参数配置文件进行修改：
+- `PlannerServer`下的`GridBased`, 导入我们自己编写的插件，并配置好分辨率为0.1
+```python
+	GridBased:
+      plugin: "nav2_custom_planner/CustomPlanner"
+      interpolation_resolution: 0.1
+```
+
+### 5. 自定义控制器插件
+#### 5.1 搭建框架
+- 控制器根据规划器的命令来下发给机器人去行动
+- 又称为路径跟踪
+```shell
+ros2 pkg create nav2_custom_controller --build-type ament_cmake --dependencies pluginlib nav2_core
+```
+- 之后则是老几样---`.hpp / .cpp / .xml / package.xml / CMakeList.txt`
+#### 5.2 实现自定义控制算法
+1. `computeVelocityCommands` 方法
+    - 功能 ：计算机器人的速度指令，是控制器的核心方法。
+    - 核心流程 ：
+        路径检查 ：检查全局路径是否为空，为空则抛出异常
+        坐标系转换 ：将机器人当前姿态转换到全局计划坐标系
+        目标点获取 ：调用 getNearestTargetPose 获取最近的目标点
+        角度差计算 ：调用 calculateAngleDifference 计算当前姿态与目标姿态的角度差
+        速度计算 ：
+        - 如果角度差大于 π/10（约18度），则只旋转不前进
+        - 否则，只前进不旋转
+	    日志输出 ：记录发送的速度指令
+        返回速度指令
+2. `setSpeedLimit` 方法
+    功能 ：设置速度限制（当前未实现）
+3. `setPlan` 方法
+    功能 ：设置全局路径
+    实现细节 ：
+    - 接收一个 `nav_msgs::msg::Path` 类型的路径参数
+    - 将其赋值给成员变量 `global_plan_`
+4. `getNearestTargetPose` 方法
+    功能 ：从全局路径中获取离当前机器人位置最近的目标点
+    实现细节 ：
+    1. 计算最近点 ：遍历路径中的所有点，计算与当前位置的欧氏距离，找到最近的点
+    2. 路径裁剪 ：从路径中删除从起点到最近点的所有点，只保留最近点之后的路径
+    3. 返回目标点 ：
+    - 如果路径只剩一个点，返回该点
+    - 否则返回最近点的下一个点作为目标
+5. `calculateAngleDifference` 方法（第119-137行）
+    功能 ：计算当前机器人姿态与目标姿态之间的角度差
+    实现细节 ：
+    1. 获取当前角度 ：从当前姿态的四元数中提取偏航角（yaw）
+    2. 计算目标角度 ：根据当前位置和目标位置计算目标方向的角度
+    3. 计算角度差 ：计算两个角度之间的差值，并将其归一化到 [-π, π] 范围内
+#### 5.3 配置导航参数
+- 同样时更改.yaml文件中的配置
+- `controller_sever`下的`FollowPath`进行更改为自己传输给的参数即可（线速度/角速度）

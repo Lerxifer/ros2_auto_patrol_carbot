@@ -1,0 +1,6 @@
+{
+  "package_name": "carbot_patrol_interfaces",
+  "non_idl_tuples": [
+    "/home/luxifer/LearningRoom/navigation_ws/src/carbot_patrol_interfaces:srv/Speech.srv"
+  ]
+}

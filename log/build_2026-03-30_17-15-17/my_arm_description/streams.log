@@ -1,0 +1,74 @@
+[0.139s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/luxifer/LearningRoom/navigation_ws/src/my_arm_description -DCMAKE_INSTALL_PREFIX=/home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description
+[0.189s] -- The C compiler identification is GNU 13.3.0
+[0.235s] -- The CXX compiler identification is GNU 13.3.0
+[0.253s] -- Detecting C compiler ABI info
+[0.359s] -- Detecting C compiler ABI info - done
+[0.363s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.365s] -- Detecting C compile features
+[0.365s] -- Detecting C compile features - done
+[0.375s] -- Detecting CXX compiler ABI info
+[0.474s] -- Detecting CXX compiler ABI info - done
+[0.479s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.482s] -- Detecting CXX compile features
+[0.482s] -- Detecting CXX compile features - done
+[0.484s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.631s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.752s] -- Found urdf: 2.10.0 (/opt/ros/jazzy/share/urdf/cmake)
+[0.797s] -- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2
+[0.812s] -- Found xacro: 2.1.1 (/opt/ros/jazzy/share/xacro/cmake)
+[0.815s] -- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.915s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.915s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.915s] -- Added test 'lint_cmake' to check CMake code style
+[0.915s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.916s] -- Added test 'xmllint' to check XML markup files
+[0.918s] -- Configuring done (0.8s)
+[0.920s] -- Generating done (0.0s)
+[0.921s] -- Build files have been written to: /home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description
+[0.929s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/luxifer/LearningRoom/navigation_ws/src/my_arm_description -DCMAKE_INSTALL_PREFIX=/home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description
+[0.929s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description -- -j8 -l8
+[0.972s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description -- -j8 -l8
+[0.973s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description
+[0.981s] -- Install configuration: ""
+[0.981s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/config
+[0.982s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/config/display_arm_model.rviz
+[0.982s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/config/carbot_ros2_controller.yaml
+[0.982s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/launch
+[0.982s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/launch/display_arm.launch.py
+[0.983s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/launch/gazebo_sim.launch.py
+[0.983s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/launch/__pycache__
+[0.983s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/launch/__pycache__/display_arm.launch.cpython-312.pyc
+[0.984s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf
+[0.984s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot
+[0.984s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/plugins
+[0.984s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/plugins/gazebo_sensor_plugin.xacro
+[0.984s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/common_inertia.xacro
+[0.985s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/actuator
+[0.985s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/actuator/caster.urdf.xacro
+[0.985s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/actuator/wheel.urdf.xacro
+[0.985s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/carbot.urdf
+[0.985s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/base.urdf.xacro
+[0.985s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/sensor
+[0.986s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/sensor/imu.urdf.xacro
+[0.986s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/sensor/camera.urdf.xacro
+[0.986s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/sensor/laser.urdf.xacro
+[0.987s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/carbot.urdf.xacro
+[0.987s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/urdf/carbot/carbot.ros2_control.xacro
+[0.988s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/world
+[0.988s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/world/custom_room.sdf
+[0.988s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/ament_index/resource_index/package_run_dependencies/my_arm_description
+[0.988s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/ament_index/resource_index/parent_prefix_path/my_arm_description
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/environment/ament_prefix_path.sh
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/environment/ament_prefix_path.dsv
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/environment/path.sh
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/environment/path.dsv
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/local_setup.bash
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/local_setup.sh
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/local_setup.zsh
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/local_setup.dsv
+[0.989s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/package.dsv
+[0.990s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/ament_index/resource_index/packages/my_arm_description
+[0.990s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/cmake/my_arm_descriptionConfig.cmake
+[0.990s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/cmake/my_arm_descriptionConfig-version.cmake
+[0.990s] -- Installing: /home/luxifer/LearningRoom/navigation_ws/src/install/my_arm_description/share/my_arm_description/package.xml
+[0.992s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luxifer/LearningRoom/navigation_ws/install/auto_patrol_carbot:/home/luxifer/LearningRoom/navigation_ws/install/carbot_application:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/luxifer/LearningRoom/navigation_ws/src/build/my_arm_description

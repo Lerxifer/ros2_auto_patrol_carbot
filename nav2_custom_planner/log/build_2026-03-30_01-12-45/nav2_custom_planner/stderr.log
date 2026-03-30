@@ -1,0 +1,4 @@
+[01m[K/home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner/src/nav2_custom_planner.cpp:[m[K In member function ‘[01m[Kvirtual nav_msgs::msg::Path nav2_custom_planner::CustomPlanner::[01;32m[KcreatePlan[m[K(const geometry_msgs::msg::PoseStamped&, const geometry_msgs::msg::PoseStamped&, std::function<bool()>)[m[K’:
+[01m[K/home/luxifer/LearningRoom/navigation_ws/src/nav2_custom_planner/src/nav2_custom_planner.cpp:50:53:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcancel_checker[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   50 |                               [01;35m[Kstd::function<bool()> cancel_checker[m[K)
+      |                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K

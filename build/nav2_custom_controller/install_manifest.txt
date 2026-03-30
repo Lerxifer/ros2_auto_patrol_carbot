@@ -1,0 +1,15 @@
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/ament_index/resource_index/package_run_dependencies/nav2_custom_controller
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/ament_index/resource_index/parent_prefix_path/nav2_custom_controller
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/environment/ament_prefix_path.sh
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/environment/ament_prefix_path.dsv
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/environment/path.sh
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/environment/path.dsv
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/local_setup.bash
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/local_setup.sh
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/local_setup.zsh
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/local_setup.dsv
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/package.dsv
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/ament_index/resource_index/packages/nav2_custom_controller
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/cmake/nav2_custom_controllerConfig.cmake
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/cmake/nav2_custom_controllerConfig-version.cmake
+/home/luxifer/LearningRoom/navigation_ws/src/install/nav2_custom_controller/share/nav2_custom_controller/package.xml

@@ -1,0 +1,11 @@
+{
+  "package_name": "carbot_patrol_interfaces",
+  "output_dir": "/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_patrol_interfaces/rosidl_generator_type_description/carbot_patrol_interfaces",
+  "idl_tuples": [
+    "/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_patrol_interfaces/rosidl_adapter/carbot_patrol_interfaces:srv/Speech.idl"
+  ],
+  "include_paths": [
+    "service_msgs:/opt/ros/jazzy/share/service_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

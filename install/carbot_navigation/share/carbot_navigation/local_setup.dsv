@@ -1,0 +1,2 @@
+source;share/carbot_navigation/environment/ament_prefix_path.sh
+source;share/carbot_navigation/environment/path.sh

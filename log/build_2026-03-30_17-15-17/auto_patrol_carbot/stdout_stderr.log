@@ -1,0 +1,43 @@
+running egg_info
+creating ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info
+writing ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/PKG-INFO
+writing dependency_links to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/dependency_links.txt
+writing entry points to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/entry_points.txt
+writing requirements to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/requires.txt
+writing top-level names to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/top_level.txt
+writing manifest file '../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/SOURCES.txt'
+reading manifest file '../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/SOURCES.txt'
+writing manifest file '../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build
+creating /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib
+creating /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+copying auto_patrol_carbot/speak.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+copying auto_patrol_carbot/auto_patrol_node.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+copying auto_patrol_carbot/__init__.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+running install
+running install_lib
+creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+copying /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot/speak.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+copying /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot/auto_patrol_node.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+copying /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot/__init__.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot/speak.py to speak.cpython-312.pyc
+byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot/auto_patrol_node.py to auto_patrol_node.cpython-312.pyc
+byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index
+creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index/resource_index
+creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index/resource_index/packages
+copying resource/auto_patrol_carbot -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index/resource_index/packages
+copying package.xml -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot
+creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/launch
+copying launch/carbot_patrol.launch.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/launch
+creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/config
+copying config/patrol_params_config.yaml -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/config
+running install_egg_info
+Copying ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info to /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot-0.0.0-py3.12.egg-info
+running install_scripts
+Installing auto_patrol_node script to /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/auto_patrol_carbot
+Installing speak_node script to /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/auto_patrol_carbot
+writing list of installed files to '/home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/install.log'

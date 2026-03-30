@@ -1,0 +1,49 @@
+[0.645s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/carbot_application': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/carbot_application build --build-base /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build install --record /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/install.log --single-version-externally-managed install_data
+[0.841s] running egg_info
+[0.841s] creating ../build/carbot_application/carbot_application.egg-info
+[0.853s] writing ../build/carbot_application/carbot_application.egg-info/PKG-INFO
+[0.853s] writing dependency_links to ../build/carbot_application/carbot_application.egg-info/dependency_links.txt
+[0.854s] writing entry points to ../build/carbot_application/carbot_application.egg-info/entry_points.txt
+[0.854s] writing requirements to ../build/carbot_application/carbot_application.egg-info/requires.txt
+[0.855s] writing top-level names to ../build/carbot_application/carbot_application.egg-info/top_level.txt
+[0.855s] writing manifest file '../build/carbot_application/carbot_application.egg-info/SOURCES.txt'
+[0.880s] reading manifest file '../build/carbot_application/carbot_application.egg-info/SOURCES.txt'
+[0.880s] adding license file 'LICENSE'
+[0.880s] writing manifest file '../build/carbot_application/carbot_application.egg-info/SOURCES.txt'
+[0.881s] running build
+[0.881s] running build_py
+[0.881s] creating /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build
+[0.881s] creating /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib
+[0.881s] creating /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application
+[0.881s] copying carbot_application/init_robot_pose.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application
+[0.882s] copying carbot_application/way_point_follow.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application
+[0.883s] copying carbot_application/get_carbot_pose.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application
+[0.884s] copying carbot_application/nav_2_pos.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application
+[0.885s] copying carbot_application/__init__.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application
+[0.886s] running install
+[0.890s] running install_lib
+[0.902s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application
+[0.903s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application/init_robot_pose.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application
+[0.904s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application/way_point_follow.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application
+[0.904s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application/get_carbot_pose.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application
+[0.904s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application/nav_2_pos.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application
+[0.904s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build/lib/carbot_application/__init__.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application
+[0.904s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application/init_robot_pose.py to init_robot_pose.cpython-312.pyc
+[0.904s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application/way_point_follow.py to way_point_follow.cpython-312.pyc
+[0.907s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application/get_carbot_pose.py to get_carbot_pose.cpython-312.pyc
+[0.907s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application/nav_2_pos.py to nav_2_pos.cpython-312.pyc
+[0.907s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application/__init__.py to __init__.cpython-312.pyc
+[0.907s] running install_data
+[0.907s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/share/ament_index
+[0.907s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/share/ament_index/resource_index
+[0.907s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/share/ament_index/resource_index/packages
+[0.907s] copying resource/carbot_application -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/share/ament_index/resource_index/packages
+[0.907s] copying package.xml -> /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/share/carbot_application
+[0.907s] running install_egg_info
+[0.919s] Copying ../build/carbot_application/carbot_application.egg-info to /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages/carbot_application-0.0.0-py3.12.egg-info
+[0.920s] running install_scripts
+[1.015s] Installing get_carbot_pose script to /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/carbot_application
+[1.015s] Installing init_robot_pose script to /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/carbot_application
+[1.015s] Installing nav_2_pos script to /home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/carbot_application
+[1.016s] writing list of installed files to '/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/install.log'
+[1.036s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/carbot_application' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_application/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/carbot_application build --build-base /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/build install --record /home/luxifer/LearningRoom/navigation_ws/src/build/carbot_application/install.log --single-version-externally-managed install_data

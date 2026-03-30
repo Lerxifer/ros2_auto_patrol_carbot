@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "carbot_patrol_interfaces__py",
+		"source" : "/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_patrol_interfaces/carbot_patrol_interfaces__py"
+	}
+}

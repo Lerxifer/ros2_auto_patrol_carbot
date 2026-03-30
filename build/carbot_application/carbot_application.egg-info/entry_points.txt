@@ -1,0 +1,4 @@
+[console_scripts]
+get_carbot_pose = carbot_application.get_carbot_pose:main
+init_robot_pose = carbot_application.init_robot_pose:main
+nav_2_pos = carbot_application.nav_2_pos:main

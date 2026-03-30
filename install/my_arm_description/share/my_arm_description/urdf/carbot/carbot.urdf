@@ -1,0 +1,446 @@
+<?xml version="1.0" ?>
+<robot name="carbot">
+  <link name="base_footprint"/>
+  <link name="base_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.12" radius="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 0.5"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.12" radius="0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.0037000000000000006" ixy="0" ixz="0" iyy="0.0037000000000000006" iyz="0" izz="0.005000000000000001"/>
+    </inertial>
+  </link>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.091"/>
+  </joint>
+  <link name="camera_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.02 0.10 0.02"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.02 0.10 0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="8.666666666666668e-05" ixy="0.0" ixz="0.0" iyy="6.666666666666667e-06" iyz="0.0" izz="8.666666666666668e-05"/>
+    </inertial>
+  </link>
+  <!-- ============ 相机光学链接 (ROS 标准坐标系) ============ -->
+  <link name="camera_optical_link"/>
+  <joint name="camera_optical_joint" type="fixed">
+    <parent link="camera_link"/>
+    <child link="camera_optical_link"/>
+    <!-- 光学坐标系转换：相机坐标系 → 光学坐标系 -->
+    <!-- rpy="${-pi/2} 0 ${-pi/2}" 表示先绕 X 转 -90°，再绕 Z 转 -90°，使 Z 轴向前，X 轴向右，Y 轴向下 -->
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+  </joint>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.1 0.0 0.075"/>
+  </joint>
+  <link name="imu_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="6.666666666666667e-06" ixy="0.0" ixz="0.0" iyy="6.666666666666667e-06" iyz="0.0" izz="6.666666666666667e-06"/>
+    </inertial>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0.0 0.0 0.02"/>
+  </joint>
+  <gazebo reference="laser_cylinder_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="laser_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <!-- ============雷 达 支 撑 杆=============== -->
+  <link name="laser_cylinder_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.10" radius="0.01"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.10" radius="0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="4.2916666666666675e-05" ixy="0" ixz="0" iyy="4.2916666666666675e-05" iyz="0" izz="2.5e-06"/>
+    </inertial>
+  </link>
+  <joint name="laser_cylinder_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser_cylinder_link"/>
+    <origin xyz="0.0 0.0 0.10"/>
+  </joint>
+  <!-- ============雷 达=============== -->
+  <link name="laser_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.02"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="1.3333333333333332e-05" ixy="0" ixz="0" iyy="1.3333333333333332e-05" iyz="0" izz="2e-05"/>
+    </inertial>
+  </link>
+  <joint name="laser_joint" type="fixed">
+    <parent link="laser_cylinder_link"/>
+    <child link="laser_link"/>
+    <origin xyz="0.0 0.0 0.05"/>
+  </joint>
+  <gazebo reference="left_wheel_link">
+    <!-- 物理属性设置 -->
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+  <link name="left_wheel_link">
+    <visual>
+      <origin rpy="1.57079 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.032"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.032"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="1.9466666666666668e-05" ixy="0" ixz="0" iyy="1.9466666666666668e-05" iyz="0" izz="2.56e-05"/>
+    </inertial>
+  </link>
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.10 -0.06"/>
+    <axis xyz="0 1 0"/>
+    <!-- 关节物理属性 -->
+    <gazebo>
+      <damping value="0.1"/>
+      <friction value="0.01"/>
+    </gazebo>
+  </joint>
+  <gazebo reference="right_wheel_link">
+    <!-- 物理属性设置 -->
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+  <link name="right_wheel_link">
+    <visual>
+      <origin rpy="1.57079 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.032"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.032"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="1.9466666666666668e-05" ixy="0" ixz="0" iyy="1.9466666666666668e-05" iyz="0" izz="2.56e-05"/>
+    </inertial>
+  </link>
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.10 -0.06"/>
+    <axis xyz="0 1 0"/>
+    <!-- 关节物理属性 -->
+    <gazebo>
+      <damping value="0.1"/>
+      <friction value="0.01"/>
+    </gazebo>
+  </joint>
+  <gazebo reference="front_caster_link">
+    <!-- 物理属性设置 -->
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+  <link name="front_caster_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.016"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.016"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="5.120000000000001e-06" ixy="0.0" ixz="0.0" iyy="5.120000000000001e-06" iyz="0.0" izz="5.120000000000001e-06"/>
+    </inertial>
+  </link>
+  <joint name="front_caster_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_caster_link"/>
+    <origin xyz="0.08 0.0 -0.076"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <gazebo reference="back_caster_link">
+    <!-- 物理属性设置 -->
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+  <link name="back_caster_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.016"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1.0 1.0 0.0 0.8"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.016"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="5.120000000000001e-06" ixy="0.0" ixz="0.0" iyy="5.120000000000001e-06" iyz="0.0" izz="5.120000000000001e-06"/>
+    </inertial>
+  </link>
+  <joint name="back_caster_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_caster_link"/>
+    <origin xyz="-0.08 0.0 -0.076"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- ========== 激光雷达传感器（暂时禁用） ========== -->
+  <!--
+        <gazebo reference="laser_link">
+            <sensor name="laserscan" type="gpu_ray">
+                <always_on>true</always_on>
+                <update_rate>10</update_rate>
+                <pose>0 0 0 0 0 0</pose>
+                <visualize>false</visualize>
+                
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>360</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-3.14159</min_angle>
+                            <max_angle>3.14159</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.12</min>
+                        <max>8.0</max>
+                        <resolution>0.015</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                    </noise>
+                </ray>
+            </sensor>
+        </gazebo>
+        -->
+  <!-- ========== IMU 传感器（暂时禁用） ========== -->
+  <!--
+        <gazebo reference="imu_link">
+            <sensor name="imu_sensor" type="imu">
+                <topic>/imu</topic>
+                <frame_name>imu_link</frame_name>
+                <always_on>true</always_on>
+                <update_rate>100</update_rate>
+                <visualize>false</visualize>
+                <imu>
+                    <angular_velocity>
+                        <x>
+                            <noise type="gaussian">
+                                <mean>0.0</mean>
+                                <stddev>2e-4</stddev>
+                            </noise>
+                        </x>
+                        <y>
+                            <noise type="gaussian">
+                                <mean>0.0</mean>
+                                <stddev>2e-4</stddev>
+                            </noise>
+                        </y>
+                        <z>
+                            <noise type="gaussian">
+                                <mean>0.0</mean>
+                                <stddev>2e-4</stddev>
+                            </noise>
+                        </z>
+                    </angular_velocity>
+                    <linear_acceleration>
+                        <x>
+                            <noise type="gaussian">
+                                <mean>0.0</mean>
+                                <stddev>1.7e-2</stddev>
+                            </noise>
+                        </x>
+                        <y>
+                            <noise type="gaussian">
+                                <mean>0.0</mean>
+                                <stddev>1.7e-2</stddev>
+                            </noise>
+                        </y>
+                        <z>
+                            <noise type="gaussian">
+                                <mean>0.0</mean>
+                                <stddev>1.7e-2</stddev>
+                            </noise>
+                        </z>
+                    </linear_acceleration>
+                </imu>
+            </sensor>
+        </gazebo>
+        -->
+  <!-- ========== 相机传感器（暂时禁用） ========== -->
+  <!--
+        <gazebo reference="camera_link">
+            <sensor name="camera" type="camera">
+                <topic>/camera/image_raw</topic>
+                <frame_name>camera_optical_link</frame_name>
+                <always_on>true</always_on>
+                <update_rate>30</update_rate>
+                <visualize>false</visualize>
+                <camera>
+                    <horizontal_fov>1.047</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>R8G8B8</format>
+                    </image>
+                    <clip>
+                        <near>0.1</near>
+                        <far>100</far>
+                    </clip>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.007</stddev>
+                    </noise>
+                </camera>
+            </sensor>
+        </gazebo>
+        -->
+  <ros2_control name="CarBotGazeboSystem" type="system">
+    <hardware>
+      <!-- Gazebo Harmonic 的硬件插件 -->
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    <!-- 左轮关节 -->
+    <joint name="left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <!-- 右轮关节 -->
+    <joint name="right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+  <!-- Gazebo Sim 插件配置（Harmonic 版本） -->
+  <gazebo>
+    <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>/home/luxifer/navigation_ws/install/my_arm_description/share/my_arm_description/config/carbot_ros2_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+</robot>

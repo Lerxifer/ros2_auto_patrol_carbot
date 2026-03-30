@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-ffdb1c3b4b0844b72345.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "carbot_patrol_interfaces__py",
+					"jsonFile" : "directory-carbot_patrol_interfaces__py-10774ca2a1f927bcde87.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_patrol_interfaces/carbot_patrol_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "carbot_patrol_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_carbot_patrol_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_carbot_patrol_interfaces_egg-38769312adf5d588f7ea.json",
+					"name" : "ament_cmake_python_build_carbot_patrol_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_carbot_patrol_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_carbot_patrol_interfaces-e7817f764aae751144b9.json",
+					"name" : "ament_cmake_python_copy_carbot_patrol_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces-ecc79c66c215c2f5dc77.json",
+					"name" : "carbot_patrol_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__cpp-2ff0dfaa0d0ba36b2674.json",
+					"name" : "carbot_patrol_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "carbot_patrol_interfaces__py::@27d144dc5cd598df6134",
+					"jsonFile" : "target-carbot_patrol_interfaces__py-10e4a5075c76baa3b15d.json",
+					"name" : "carbot_patrol_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_generator_c-792508ac404e57991ae8.json",
+					"name" : "carbot_patrol_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_generator_py-d4a34642462c063ac973.json",
+					"name" : "carbot_patrol_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_generator_type_description-4b64ff4bb607337b85ef.json",
+					"name" : "carbot_patrol_interfaces__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_typesupport_c-4a1f58a078bd851d631d.json",
+					"name" : "carbot_patrol_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_typesupport_cpp-9b3ec889ea623f6ad23d.json",
+					"name" : "carbot_patrol_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_typesupport_fastrtps_c-3d160b62d4069f4ab60b.json",
+					"name" : "carbot_patrol_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_typesupport_fastrtps_cpp-086c553119d7d39b9a9c.json",
+					"name" : "carbot_patrol_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_typesupport_introspection_c-8aff576fa306861f53fe.json",
+					"name" : "carbot_patrol_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces__rosidl_typesupport_introspection_cpp-703d83e362e922f8f353.json",
+					"name" : "carbot_patrol_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces_s__rosidl_typesupport_c-692df8f62e8a87512108.json",
+					"name" : "carbot_patrol_interfaces_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces_s__rosidl_typesupport_fastrtps_c-1dc3c9d4b46d7e3a6f87.json",
+					"name" : "carbot_patrol_interfaces_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces_s__rosidl_typesupport_introspection_c-9be6cfce81ca78c72f6c.json",
+					"name" : "carbot_patrol_interfaces_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "carbot_patrol_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-carbot_patrol_interfaces_uninstall-838d2d6d23c18e3bffe1.json",
+					"name" : "carbot_patrol_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-31773764d96d99baafdb.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/luxifer/LearningRoom/navigation_ws/src/build/carbot_patrol_interfaces",
+		"source" : "/home/luxifer/LearningRoom/navigation_ws/src/carbot_patrol_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

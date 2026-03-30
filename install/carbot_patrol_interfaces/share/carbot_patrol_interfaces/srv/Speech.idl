@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from carbot_patrol_interfaces/srv/Speech.srv
+// generated code does not contain a copyright notice
+
+
+module carbot_patrol_interfaces {
+  module srv {
+    struct Speech_Request {
+      string text;
+    };
+    struct Speech_Response {
+      boolean result;
+    };
+  };
+};

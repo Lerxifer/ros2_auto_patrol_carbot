@@ -1,0 +1,200 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="custom_room">
+    
+    <!-- 传感器系统插件 -->
+    <plugin filename="gz-sim8-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre</render_engine>
+    </plugin>
+    
+    <!-- 物理引擎插件 -->
+    <plugin filename="gz-sim8-physics-system" name="gz::sim::systems::Physics"/>
+    
+    <!-- 场景广播插件 -->
+    <plugin filename="gz-sim8-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    
+    <!-- 用户命令插件 -->
+    <plugin filename="gz-sim8-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    
+    <!-- 主光源：方向光（太阳光） -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.85 0.7 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>0.5 -0.5 -1</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+    
+    <!-- 地面 -->
+    <model name="ground">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.6 0.6 0.6 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- 房屋地板 -->
+    <model name="floor">
+      <static>true</static>
+      <link name="link">
+        <pose>0 0 0.05 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 8 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 8 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.55 0.45 1</ambient>
+            <diffuse>0.7 0.65 0.55 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- 外墙壁（简化版，只做4面墙） -->
+    <model name="walls">
+      <static>true</static>
+      <!-- 北墙 -->
+      <link name="north">
+        <pose>0 4 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>10 0.2 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.2 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.9 0.9 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <!-- 南墙 -->
+      <link name="south">
+        <pose>0 -4 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>10 0.2 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.2 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.9 0.9 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <!-- 东墙 -->
+      <link name="east">
+        <pose>5 0 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.2 8 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 8 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.9 0.9 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <!-- 西墙 -->
+      <link name="west">
+        <pose>-5 0 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.2 8 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 8 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.9 0.9 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- 内墙：分隔客厅和卧室区 -->
+    <model name="inner_wall">
+      <static>true</static>
+      <link name="wall">
+        <pose>0 1 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>5 0.2 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>5 0.2 1.5</size></box></geometry>
+          <material>
+            <ambient>0.7 0.7 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- 室内两堵墙 -->
+    <model name="indoor_walls">
+      <static>true</static>
+      <!-- 第一堵墙 -->
+      <link name="wall1">
+        <pose>2 0 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.2 3 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 3 1.5</size></box></geometry>
+          <material>
+            <ambient>0.6 0.6 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <!-- 第二堵墙 -->
+      <link name="wall2">
+        <pose>-2 0 0.75 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.2 3 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 3 1.5</size></box></geometry>
+          <material>
+            <ambient>0.6 0.6 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+  </world>
+</sdf>

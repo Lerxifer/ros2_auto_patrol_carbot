@@ -1,0 +1,45 @@
+[0.440s] Invoking command in '/home/luxifer/LearningRoom/navigation_ws/src/auto_patrol_carbot': AMENT_PREFIX_PATH=/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages:/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/auto_patrol_carbot build --build-base /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build install --record /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/install.log --single-version-externally-managed install_data
+[0.576s] running egg_info
+[0.577s] creating ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info
+[0.585s] writing ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/PKG-INFO
+[0.585s] writing dependency_links to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/dependency_links.txt
+[0.585s] writing entry points to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/entry_points.txt
+[0.586s] writing requirements to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/requires.txt
+[0.586s] writing top-level names to ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/top_level.txt
+[0.586s] writing manifest file '../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/SOURCES.txt'
+[0.609s] reading manifest file '../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/SOURCES.txt'
+[0.609s] writing manifest file '../build/auto_patrol_carbot/auto_patrol_carbot.egg-info/SOURCES.txt'
+[0.610s] running build
+[0.610s] running build_py
+[0.610s] creating /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build
+[0.610s] creating /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib
+[0.610s] creating /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+[0.610s] copying auto_patrol_carbot/speak.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+[0.611s] copying auto_patrol_carbot/auto_patrol_node.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+[0.611s] copying auto_patrol_carbot/__init__.py -> /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot
+[0.611s] running install
+[0.615s] running install_lib
+[0.625s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+[0.625s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot/speak.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+[0.625s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot/auto_patrol_node.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+[0.625s] copying /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build/lib/auto_patrol_carbot/__init__.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot
+[0.625s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot/speak.py to speak.cpython-312.pyc
+[0.625s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot/auto_patrol_node.py to auto_patrol_node.cpython-312.pyc
+[0.627s] byte-compiling /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot/__init__.py to __init__.cpython-312.pyc
+[0.627s] running install_data
+[0.627s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index
+[0.627s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index/resource_index
+[0.627s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index/resource_index/packages
+[0.627s] copying resource/auto_patrol_carbot -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/ament_index/resource_index/packages
+[0.627s] copying package.xml -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot
+[0.627s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/launch
+[0.627s] copying launch/carbot_patrol.launch.py -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/launch
+[0.628s] creating /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/config
+[0.628s] copying config/patrol_params_config.yaml -> /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/share/auto_patrol_carbot/config
+[0.628s] running install_egg_info
+[0.638s] Copying ../build/auto_patrol_carbot/auto_patrol_carbot.egg-info to /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages/auto_patrol_carbot-0.0.0-py3.12.egg-info
+[0.639s] running install_scripts
+[0.715s] Installing auto_patrol_node script to /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/auto_patrol_carbot
+[0.715s] Installing speak_node script to /home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/auto_patrol_carbot
+[0.715s] writing list of installed files to '/home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/install.log'
+[0.731s] Invoked command in '/home/luxifer/LearningRoom/navigation_ws/src/auto_patrol_carbot' returned '0': AMENT_PREFIX_PATH=/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/luxifer/LearningRoom/navigation_ws/src/install/auto_patrol_carbot/lib/python3.12/site-packages:/home/luxifer/LearningRoom/navigation_ws/src/install/carbot_patrol_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/auto_patrol_carbot build --build-base /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/build install --record /home/luxifer/LearningRoom/navigation_ws/src/build/auto_patrol_carbot/install.log --single-version-externally-managed install_data

@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: auto-patrol-carbot
+Version: 0.0.0
+Summary: 自动巡逻机器人节点
+Maintainer: luxifer
+Maintainer-email: luoxi20030116@163.com
+License: TODO: License declaration
+Provides-Extra: test
