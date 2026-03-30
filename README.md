@@ -78,7 +78,7 @@ def generate_launch_description():
         launch_gazebo,
         spawn_entity_node,
     ])
-  ```
+```
 ### 2.2 URDF中扩展Gazebo标签
 - 通过添加标签`<gazebo>  </gazebo>`来实现小车在仿真环境中的颜色，物理性质等因素的实现
 ### 2.3 使用两轮差速插件控制机器人
@@ -153,7 +153,7 @@ def generate_launch_description():
 └──────────────┘  └──────────────┘  └──────────────┘
 ```
 #### 数据流路径
-```
+```shell
 Gazebo Sim 内部传感器 → 
 ros_gz_bridge 桥接 → ROS 2 标准话题
 ```
@@ -207,7 +207,7 @@ ros2 topic echo /camera/camera_info --once
 ## 4. ros2_control驱动机器人
 ### 4.1 使用控制器获取信息
 - 查看ROS2控制器命令 (jazzy)
-```
+```shell
 sudo apt info ros-$ROS_DISTRO-ros2-controllers
 ```
 - 创建carbot.ros2_control.xacro文件
@@ -225,7 +225,7 @@ carbot_effort_controller:
       type: effort_controllers/JointGroupEffortController
 ```
 - 配置好力控制器的相关参数
-```
+```python
 carbot_effort_controller:
   ros__parameters:
     joints:
@@ -498,7 +498,7 @@ ros2 launch nav2_bringup navigation_launch.py \
 ### 1.1 初始化机器人的位姿
 - 新建一个`carbot_application`的包，并在其中创建init_pose的文件来初始化机器人初始位姿
 - 具体实现是通过导入nav2的库来实现的
-```
+```python
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator
 import rclpy
@@ -557,7 +557,7 @@ ros2 pkg create auto_patrol_carbot --build-type ament_python --dependencies rcpl
     - 在运行节点时记得加载.yaml文件就行
     - ` ros2 run <package_name> <executable_name> --ros-args --params-file            <config_file_path>`
     - 后续也可以再写launch文件来包含这个命令
-```
+```python
 def generate_launch_description():
     # 获取包的路径
     package_dir = get_package_share_directory('auto_patrol_carbot')
@@ -596,7 +596,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 ##### 创建语音服务节点
 - 创建`speak.py`节点来实现语音播报逻辑
 - 使用 `espeakng` 库将文本转换为语音
-```
+```python
 class Speaker(Node):
     def __init__(self, node_name):
         super().__init__(node_name)
@@ -656,6 +656,8 @@ def generate_launch_description():
 ### 2.4 订阅图像并记录
 - 创建一个订阅者，订阅来自相机的图像，并转换为OpenCV的格式
 - 接着将图像保存值指定的位置
+- 记得在launch文件中添加相机节点
+- 记得在launch文件中添加语音播报节点
 
 ---
 # 三、进阶导航
